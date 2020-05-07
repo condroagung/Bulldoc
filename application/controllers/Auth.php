@@ -23,6 +23,28 @@ class Auth extends CI_Controller{
         }
     }
 
+    public function change_password(){
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+        $this->form_validation->set_rules('pass1', 'Password', 'trim|required|min_length[5]|matches[pass2]', [
+            'matches' => 'password dont match!'
+        ]);
+        $this->form_validation->set_rules('pass2', 'Password', 'trim|required|min_length[5]|matches[pass1]');
+
+        $username=$this->input->post('username');
+
+        if( $this->form_validation->run() == false ){
+            $data['title']="Register Now";
+            $this->load->view('auth/change_password', $data);
+        }
+        else{
+            $data = [
+                'username' => $this->input->post('username'),
+                'password' => $this->input->post('pass1')
+            ];
+            $this->M_user->change_password($username,$data);
+        }
+    }
+
     public function register(){
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required|is_unique[user.username]',[
@@ -46,7 +68,6 @@ class Auth extends CI_Controller{
             $config['upload_path']          = './uploads/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['max_size']             = 10000;
-            $config['file_name']            = 'user- '.date('ymd');
 
             $this->load->library('upload', $config);
 
@@ -85,7 +106,6 @@ class Auth extends CI_Controller{
 
     public function logout(){
         $this->session->unset_userdata('username');
-        $this->session->unset_userdata('email');
         $this->session->set_flashdata('flash', '<div class= "alert alert-success" role="alert">You have been logged out</div>');
         redirect('auth/login');
     }

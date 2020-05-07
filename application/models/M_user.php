@@ -19,7 +19,7 @@ class M_User extends CI_Model{
                 if($cekuser['status_user']=="admin"){
                     $data = [
                         'username' => $cekuser['username'],
-                        'email' => $cekuser['email']
+                        'gambar' => $cekuser['gambar_user']
                     ];
                     $this->session->set_userdata($data);
                     redirect('dashboard');
@@ -27,7 +27,7 @@ class M_User extends CI_Model{
                 else{
                     $data = [
                         'username' => $cekuser['username'],
-                        'email' => $cekuser['email']
+                        'gambar' => $cekuser['gambar_user']
                     ];
                     $this->session->set_userdata($data);
                     redirect('dashboard/index_user');
@@ -47,6 +47,12 @@ class M_User extends CI_Model{
     public function add_data($data){
         $this->db->insert('user', $data);
         $this->session->set_flashdata('flash', '<div class= "alert alert-success" role="alert">Your account has been created! please Login</div>');
+        redirect('auth/login');
+    }
+
+    public function change_password($username,$data){
+        $this->db->update('user',$data,array('username'=>$username));
+        $this->session->set_flashdata('flash', '<div class= "alert alert-success" role="alert">Password has already changed!</div>');
         redirect('auth/login');
     }
 }

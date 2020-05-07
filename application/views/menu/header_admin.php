@@ -3,20 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dashboard</title>
+  <title><?= $title ?></title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link href="<?php echo base_url();?>fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet">
   
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
 
+
+<div class="wrapper">
   <header class="main-header">
-    <a href="index2.html" class="logo">
+    <a href="<?php echo base_url('dashboard');?>" class="logo">
       <span class="logo-mini"><b>A</b>LT</span>
       <span class="logo-lg"><b>Bull</b>DOC</span>
     </a>
@@ -43,9 +47,6 @@
               </li>
      
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
                 <div class="pull-right">
                   <a href="<?php echo base_url('auth/logout');?>" class="btn btn-default btn-flat">Log out</a>
                 </div>
@@ -58,7 +59,6 @@
   </header>
   
   <aside class="main-sidebar">
-
     <section class="sidebar">
    
       <div class="user-panel">
@@ -78,11 +78,6 @@
           <i class="fas fa-columns"></i> <span style="margin-left:5px;">Dashboard</span>
           </a>
         </li>
-        <li>
-          <a href="pages/widgets.html">
-          <i class="fas fa-user"></i> <span style="margin-left:5px;">My Profile</span>
-          </a>
-        </li>
         <li class="treeview">
           <a href="#">
             <i class="fas fa-clinic-medical"></i> <span style="margin-left:5px;">Apotek</span>
@@ -91,9 +86,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Dashboard/data_obat');?>"><i class="fas fa-first-aid"></i> <span style="margin-left:5px;">Obat</span></a></li>
-            <li><a href="pages/examples/profile.html"><i class="fas fa-notes-medical"></i><span style="margin-left:10px;">Pembelian</span></a></li></a></li>
-            <li><a href="pages/examples/login.html"><i class="far fa-id-card"></i> <span style="margin-left:5px;">Pegawai</span></a></li>
+            <li><a href="<?php echo base_url('obat');?>"><i class="fas fa-first-aid"></i> <span style="margin-left:5px;">Obat</span></a></li>
+            <li><a href="<?php echo base_url('cart');?>"><i class="fas fa-notes-medical"></i><span style="margin-left:10px;">Pembelian</span></a></li></a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -104,15 +98,16 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Dashboard/data_pasien');?>"><i class="fa fa-circle-o"></i> Pasien</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Kamar</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Dokter</a></li>
+            <li><a href="<?php echo base_url('pasien');?>"><i class="fas fa-user-injured"></i> <span style="margin-left:5px;">Pasien</span></li>
+            <li><a href="<?php echo base_url('kamar');?>"><i class="fas fa-procedures"></i> <span style="margin-left:5px;">Kamar</span></li>
+            <li><a href="<?php echo base_url('dokter');?>"><i class="fas fa-user-md"></i> <span style="margin-left:5px;">Dokter</span></a></li>
+            <li><a href="<?php echo base_url('poli');?>"><i class="far fa-id-card"></i> <span style="margin-left:5px;">Poliklinik</span></a></li>
+            <li><a href="<?php echo base_url('konsul/data_konsul');?>"><i class="far fa-id-card"></i> <span style="margin-left:5px;">Konsultasi</span></a></li>
           </ul>
         </li>
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Rekam Medis</span></a></li>
+        <li><a href="<?php echo base_url('rekammedis');?>"><i class="fa fa-book"></i> <span>Rekam Medis</span></a></li>
         <li class="header">SYNC</li>
         <li><a href="<?php echo base_url('auth/logout');?>"><i class="fas fa-sign-out-alt"></i> <span>LogOut</span></a></li>
       </ul>
     </section>
-   
   </aside>

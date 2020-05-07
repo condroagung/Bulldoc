@@ -17,11 +17,11 @@
 
 </head>
 
-<body class="bg-gradient-success">
+<body class="bg" style="background-image:url('<?= base_url('assets/steto.jpg');?>">
 
   <div class="container" style="margin-top:180px;">
 
-    <div class="card o-hidden border-0 shadow-lg my-7">
+    <div class="card o-hidden border-0 shadow-lg my-8">
       <div class="card-body p-0">
         <div class="row">
           <div class="col-lg">
@@ -42,9 +42,11 @@
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="password" class="form-control form-control-user" id="pass1" name="pass1" placeholder="Password">
                     <?= form_error('pass1', '<small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="checkbox" class="form-checkbox"> Show password
                   </div>
                   <div class="col-sm-6">
                     <input type="password" class="form-control form-control-user" id="pass2" name="pass2" placeholder="Repeat Password">
+                    <input type="checkbox" class="form-checkbox1"> Show repeat password
                   </div>
                 <div class="form-group row">
                   <div class="col" style="margin-top:15px; margin-left:12px;">
@@ -69,11 +71,27 @@
 
   <script src="<?php echo base_url();?>assets/vendor/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   <script src="<?php echo base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
   <script src="js/sb-admin-2.min.js"></script>
 
+  <script type="text/javascript">
+	$(document).ready(function(){		
+		$('.form-checkbox').click(function(){
+			if($(this).is(':checked')){
+				$('#pass1').attr('type','text');
+			}else{
+				$('#pass1').attr('type','password');
+			}
+		});
+    $('.form-checkbox1').click(function(){
+			if($(this).is(':checked')){
+				$('#pass2').attr('type','text');
+			}else{
+				$('#pass2').attr('type','password');
+			}
+		});
+	});
+</script>
 </body>
 
 </html>

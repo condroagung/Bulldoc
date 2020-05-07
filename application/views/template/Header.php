@@ -8,11 +8,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&display=swap" rel="stylesheet">
+    <link href="<?php echo base_url();?>fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet">
+  
     <title>Home BullDog</title>
-
     <style>
+
         body{
-            font-family:'viga', sans-serif;
+        font-family:'viga', sans-serif;
         }
         .nav-link{
             text-transform:uppercase;
@@ -31,7 +34,7 @@
             border-radius:40px;
         }
         .jumbotron{
-            background-image:url(assets/img/teammate1.png);
+            background-image:url(assets/person.jpg);
             background-size:cover;
             height:900px;
             margin-top:-75px;
@@ -45,12 +48,12 @@
             text-align:center;
             margin-top:280px;
             font-weight:200;
-        }
+      }
     </style>
   </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav id="target" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?php echo base_url();?>">BullDOC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,19 +62,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<?=base_url();?>">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('Main/faq');?>">FAQ</a>
+                <a class="nav-link" href="#about">About Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Career</a>
+                <a class="nav-link" href="#faq">Faq</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="btn btn-success login" href="<?php echo base_url('auth/login');?>">Login</a>
@@ -80,6 +80,14 @@
         </div>
   </div>
 </nav>
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">BEST UTILITY LINEAL<br> LEAL DOCTER</h1>
+  </div>
+</div>
+
   
 
    

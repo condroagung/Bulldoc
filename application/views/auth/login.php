@@ -14,6 +14,7 @@
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <script type="text/javascript" src="jquery.js"></script>
 
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url();?>assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -23,7 +24,7 @@
 
 </head>
 
-<body class="bg-gradient-success">
+<body class="bg" style="background-image:url('<?= base_url('assets/steto.jpg');?>">
 
   <div class="container" style="margin-top:150px;">
 
@@ -51,6 +52,7 @@
                       <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
                       <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
+                    <input type="checkbox" class="form-checkbox"> Show password
                     <button type="submit" class="btn btn-outline-success btn-user btn-block">
                       Login
                     </button>
@@ -58,6 +60,9 @@
                   <hr>
                   <div class="text-center">
                     <a class="small" href="<?php echo base_url('auth/register');?>">Create an Account!</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small" href="<?php echo base_url('auth/change_password');?>">Change Password Now!</a>
                   </div>
                 </div>
               </div>
@@ -80,6 +85,18 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?php echo base_url();?>assets/js/sb-admin-2.min.js"></script>
+
+  <script type="text/javascript">
+	$(document).ready(function(){		
+		$('.form-checkbox').click(function(){
+			if($(this).is(':checked')){
+				$('#password').attr('type','text');
+			}else{
+				$('#password').attr('type','password');
+			}
+		});
+	});
+</script>
 
 </body>
 
